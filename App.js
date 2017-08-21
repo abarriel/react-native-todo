@@ -1,34 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import PouchDb from 'pouchdb';
+import configureStore from './store';
+// import { syncRemote } from './lib/pouchActions';
+import App from './component/App';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flex: 1,
-    backgroundColor: 'powderblue',
-  },
-  main: {
-    flex: 2,
-    backgroundColor: 'skyblue',
-  },
-  footer: {
-    flex: 3,
-    backgroundColor: 'steelblue',
-  },
-});
+const db = PouchDb('todos');
+const pathStore = 'todos';
 
-const App = () => (
-  <View style={styles.container}>
-    <View style={styles.header}>
-    </View>
-    <View style={styles.main}>
-      <Text>Hello World Mehdi</Text>
-    </View>
-    <View style={styles.footer}>
-    </View>
-  </View>
+// const remoteCouch = 'http://admin:admin@localhost:5984/todos';
+// const configSync = {
+//   live: true,
+//   retry: true,
+// };
+
+// syncRemote(db, remoteCouch, configSync);
+
+const store = configureStore({}, db, pathStore);
+
+const Root = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
 
-export default App;
+export default Root;
