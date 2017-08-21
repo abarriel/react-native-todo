@@ -34,7 +34,7 @@ const App = ({ deleteTodo, todos, updateTodo, addTodo }) => {  // eslint-disable
 
   return (<View style={styles.container}>
     <View style={styles.header}>
-      <Text style={styles.h1}>odos</Text>
+      <Text style={styles.h1}>odlos</Text>
       <TextInput placeholder="What needs to be done?" onKeyPress={handleKeyPress} />
     </View>
     <View style={styles.main}>

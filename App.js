@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import PouchDb from 'pouchdb';
+import PouchDb from 'pouchdb-react-native';
 import configureStore from './store';
 // import { syncRemote } from './lib/pouchActions';
 import App from './component/App';
